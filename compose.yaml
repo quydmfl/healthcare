@@ -1,0 +1,19 @@
+volumes:
+  postgres-data:
+
+services:
+  # Database for project
+  postgresql:
+      image: postgres:15
+      container_name: postgresql_healthcare
+      environment:
+        POSTGRES_DB: healthcare_db
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: password
+      ports:
+        - "5432:5432"
+      volumes:
+        - postgres-data:/var/lib/postgresql/data
+
+#  # healthcare services
+#  healthcare:
